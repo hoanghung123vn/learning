@@ -130,8 +130,10 @@ SELECT UCASE(ho), LCASE(ten) FROM hoc_sinh;
 # Đếm số lượng học sinh nhóm theo độ tuổi
 SELECT tuoi, COUNT(1) as so_luong FROM hoc_sinh GROUP BY tuoi;
 SELECT tuoi, COUNT(1) as so_luong FROM hoc_sinh GROUP BY tuoi ORDER BY tuoi ASC;
+
 # Lấy ra điểm trung bình của các bạn học sinh theo tên, sắp xếp theo điểm trung bình tăng dần
 SELECT H.ten, AVG(D.diem) as diem_trung_binh FROM hoc_sinh H INNER JOIN diem_cuoi_ky D ON H.id = D.hoc_sinh_id GROUP BY H.ten ORDER BY diem_trung_binh ASC;
+
 # Lấy ra điểm trung bình trên 9 của các bạn học sinh theo tên, sắp xếp theo điểm trung bình tăng dần
 SELECT H.ten, AVG(D.diem) as diem_trung_binh FROM hoc_sinh H INNER JOIN diem_cuoi_ky D ON H.id = D.hoc_sinh_id
 GROUP BY H.ten HAVING diem_trung_binh > 9 ORDER BY diem_trung_binh ASC;
